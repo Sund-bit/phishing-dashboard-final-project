@@ -1,0 +1,221 @@
+Model,Defence,Test,Kind,Rate
+Random Forest,D0 Standard (16 features),P0 Clean phishing,Detection rate,100.0
+Random Forest,D0 Standard (16 features),P1 Free HTTPS,Detection rate,100.0
+Random Forest,D0 Standard (16 features),P2 Domain instead of IP,Detection rate,100.0
+Random Forest,D0 Standard (16 features),P3 Clean landing path,Detection rate,97.74097596269796
+Random Forest,D0 Standard (16 features),P4 HTTPS + domain + www,Detection rate,100.0
+Random Forest,D0 Standard (16 features),P5 Full mimicry (P4 + clean path),Detection rate,11.938258702468044
+Random Forest,D0 Standard (16 features),L0 Clean legitimate,False-alarm rate,1.0299625468164793
+Random Forest,D0 Standard (16 features),L1 Inner page,False-alarm rate,99.86623863028358
+Random Forest,D0 Standard (16 features),L2 HTTP (no TLS),False-alarm rate,100.0
+Random Forest,D0 Standard (16 features),L3 Without www,False-alarm rate,82.54414125200643
+Random Forest,D0 Standard (16 features),L4 Inner page over HTTP,False-alarm rate,100.0
+Gradient Boosting,D0 Standard (16 features),P0 Clean phishing,Detection rate,100.0
+Gradient Boosting,D0 Standard (16 features),P1 Free HTTPS,Detection rate,100.0
+Gradient Boosting,D0 Standard (16 features),P2 Domain instead of IP,Detection rate,100.0
+Gradient Boosting,D0 Standard (16 features),P3 Clean landing path,Detection rate,94.47704799421174
+Gradient Boosting,D0 Standard (16 features),P4 HTTPS + domain + www,Detection rate,100.0
+Gradient Boosting,D0 Standard (16 features),P5 Full mimicry (P4 + clean path),Detection rate,0.0
+Gradient Boosting,D0 Standard (16 features),L0 Clean legitimate,False-alarm rate,1.0299625468164793
+Gradient Boosting,D0 Standard (16 features),L1 Inner page,False-alarm rate,99.70572498662386
+Gradient Boosting,D0 Standard (16 features),L2 HTTP (no TLS),False-alarm rate,100.0
+Gradient Boosting,D0 Standard (16 features),L3 Without www,False-alarm rate,7.731407169609417
+Gradient Boosting,D0 Standard (16 features),L4 Inner page over HTTP,False-alarm rate,100.0
+XGBoost,D0 Standard (16 features),P0 Clean phishing,Detection rate,100.0
+XGBoost,D0 Standard (16 features),P1 Free HTTPS,Detection rate,100.0
+XGBoost,D0 Standard (16 features),P2 Domain instead of IP,Detection rate,100.0
+XGBoost,D0 Standard (16 features),P3 Clean landing path,Detection rate,92.02508240212237
+XGBoost,D0 Standard (16 features),P4 HTTPS + domain + www,Detection rate,100.0
+XGBoost,D0 Standard (16 features),P5 Full mimicry (P4 + clean path),Detection rate,9.598842350671276
+XGBoost,D0 Standard (16 features),L0 Clean legitimate,False-alarm rate,0.9630818619582664
+XGBoost,D0 Standard (16 features),L1 Inner page,False-alarm rate,92.4959871589085
+XGBoost,D0 Standard (16 features),L2 HTTP (no TLS),False-alarm rate,56.47405029427502
+XGBoost,D0 Standard (16 features),L3 Without www,False-alarm rate,25.120385232744784
+XGBoost,D0 Standard (16 features),L4 Inner page over HTTP,False-alarm rate,100.0
+LightGBM,D0 Standard (16 features),P0 Clean phishing,Detection rate,100.0
+LightGBM,D0 Standard (16 features),P1 Free HTTPS,Detection rate,100.0
+LightGBM,D0 Standard (16 features),P2 Domain instead of IP,Detection rate,100.0
+LightGBM,D0 Standard (16 features),P3 Clean landing path,Detection rate,97.25058284428009
+LightGBM,D0 Standard (16 features),P4 HTTPS + domain + www,Detection rate,99.99196076855053
+LightGBM,D0 Standard (16 features),P5 Full mimicry (P4 + clean path),Detection rate,9.647077739368116
+LightGBM,D0 Standard (16 features),L0 Clean legitimate,False-alarm rate,0.9095773140716961
+LightGBM,D0 Standard (16 features),L1 Inner page,False-alarm rate,98.23434991974318
+LightGBM,D0 Standard (16 features),L2 HTTP (no TLS),False-alarm rate,100.0
+LightGBM,D0 Standard (16 features),L3 Without www,False-alarm rate,62.88121990369181
+LightGBM,D0 Standard (16 features),L4 Inner page over HTTP,False-alarm rate,100.0
+Random Forest,D1 + Suspicious-domain features,P0 Clean phishing,Detection rate,100.0
+Random Forest,D1 + Suspicious-domain features,P1 Free HTTPS,Detection rate,100.0
+Random Forest,D1 + Suspicious-domain features,P2 Domain instead of IP,Detection rate,100.0
+Random Forest,D1 + Suspicious-domain features,P3 Clean landing path,Detection rate,99.61411689042528
+Random Forest,D1 + Suspicious-domain features,P4 HTTPS + domain + www,Detection rate,100.0
+Random Forest,D1 + Suspicious-domain features,P5 Full mimicry (P4 + clean path),Detection rate,18.07219229841627
+Random Forest,D1 + Suspicious-domain features,L0 Clean legitimate,False-alarm rate,0.9363295880149813
+Random Forest,D1 + Suspicious-domain features,L1 Inner page,False-alarm rate,100.0
+Random Forest,D1 + Suspicious-domain features,L2 HTTP (no TLS),False-alarm rate,100.0
+Random Forest,D1 + Suspicious-domain features,L3 Without www,False-alarm rate,83.26645264847512
+Random Forest,D1 + Suspicious-domain features,L4 Inner page over HTTP,False-alarm rate,100.0
+Gradient Boosting,D1 + Suspicious-domain features,P0 Clean phishing,Detection rate,100.0
+Gradient Boosting,D1 + Suspicious-domain features,P1 Free HTTPS,Detection rate,100.0
+Gradient Boosting,D1 + Suspicious-domain features,P2 Domain instead of IP,Detection rate,100.0
+Gradient Boosting,D1 + Suspicious-domain features,P3 Clean landing path,Detection rate,94.89508802958437
+Gradient Boosting,D1 + Suspicious-domain features,P4 HTTPS + domain + www,Detection rate,100.0
+Gradient Boosting,D1 + Suspicious-domain features,P5 Full mimicry (P4 + clean path),Detection rate,2.355494814695715
+Gradient Boosting,D1 + Suspicious-domain features,L0 Clean legitimate,False-alarm rate,0.8962011771000535
+Gradient Boosting,D1 + Suspicious-domain features,L1 Inner page,False-alarm rate,99.91974317817014
+Gradient Boosting,D1 + Suspicious-domain features,L2 HTTP (no TLS),False-alarm rate,100.0
+Gradient Boosting,D1 + Suspicious-domain features,L3 Without www,False-alarm rate,6.353665061530229
+Gradient Boosting,D1 + Suspicious-domain features,L4 Inner page over HTTP,False-alarm rate,100.0
+XGBoost,D1 + Suspicious-domain features,P0 Clean phishing,Detection rate,100.0
+XGBoost,D1 + Suspicious-domain features,P1 Free HTTPS,Detection rate,100.0
+XGBoost,D1 + Suspicious-domain features,P2 Domain instead of IP,Detection rate,100.0
+XGBoost,D1 + Suspicious-domain features,P3 Clean landing path,Detection rate,97.39528901037062
+XGBoost,D1 + Suspicious-domain features,P4 HTTPS + domain + www,Detection rate,95.81156041482434
+XGBoost,D1 + Suspicious-domain features,P5 Full mimicry (P4 + clean path),Detection rate,18.09630999276469
+XGBoost,D1 + Suspicious-domain features,L0 Clean legitimate,False-alarm rate,0.7891920813269128
+XGBoost,D1 + Suspicious-domain features,L1 Inner page,False-alarm rate,92.66987693953986
+XGBoost,D1 + Suspicious-domain features,L2 HTTP (no TLS),False-alarm rate,66.22525414660247
+XGBoost,D1 + Suspicious-domain features,L3 Without www,False-alarm rate,59.91171749598716
+XGBoost,D1 + Suspicious-domain features,L4 Inner page over HTTP,False-alarm rate,100.0
+LightGBM,D1 + Suspicious-domain features,P0 Clean phishing,Detection rate,100.0
+LightGBM,D1 + Suspicious-domain features,P1 Free HTTPS,Detection rate,100.0
+LightGBM,D1 + Suspicious-domain features,P2 Domain instead of IP,Detection rate,100.0
+LightGBM,D1 + Suspicious-domain features,P3 Clean landing path,Detection rate,97.95803521183375
+LightGBM,D1 + Suspicious-domain features,P4 HTTPS + domain + www,Detection rate,98.48058525604952
+LightGBM,D1 + Suspicious-domain features,P5 Full mimicry (P4 + clean path),Detection rate,13.441594983519575
+LightGBM,D1 + Suspicious-domain features,L0 Clean legitimate,False-alarm rate,0.9764579989299091
+LightGBM,D1 + Suspicious-domain features,L1 Inner page,False-alarm rate,96.32156233279828
+LightGBM,D1 + Suspicious-domain features,L2 HTTP (no TLS),False-alarm rate,100.0
+LightGBM,D1 + Suspicious-domain features,L3 Without www,False-alarm rate,85.23274478330659
+LightGBM,D1 + Suspicious-domain features,L4 Inner page over HTTP,False-alarm rate,100.0
+Random Forest,D2 Domain-only view,P0 Clean phishing,Detection rate,97.89372136023796
+Random Forest,D2 Domain-only view,P1 Free HTTPS,Detection rate,97.89372136023796
+Random Forest,D2 Domain-only view,P2 Domain instead of IP,Detection rate,22.903770399549803
+Random Forest,D2 Domain-only view,P3 Clean landing path,Detection rate,97.89372136023796
+Random Forest,D2 Domain-only view,P4 HTTPS + domain + www,Detection rate,23.06455502853927
+Random Forest,D2 Domain-only view,P5 Full mimicry (P4 + clean path),Detection rate,22.96808425114559
+Random Forest,D2 Domain-only view,L0 Clean legitimate,False-alarm rate,1.3911182450508293
+Random Forest,D2 Domain-only view,L1 Inner page,False-alarm rate,1.3911182450508293
+Random Forest,D2 Domain-only view,L2 HTTP (no TLS),False-alarm rate,1.3911182450508293
+Random Forest,D2 Domain-only view,L3 Without www,False-alarm rate,1.3911182450508293
+Random Forest,D2 Domain-only view,L4 Inner page over HTTP,False-alarm rate,1.3911182450508293
+Gradient Boosting,D2 Domain-only view,P0 Clean phishing,Detection rate,96.01254120106117
+Gradient Boosting,D2 Domain-only view,P1 Free HTTPS,Detection rate,96.01254120106117
+Gradient Boosting,D2 Domain-only view,P2 Domain instead of IP,Detection rate,29.06182168984645
+Gradient Boosting,D2 Domain-only view,P3 Clean landing path,Detection rate,96.01254120106117
+Gradient Boosting,D2 Domain-only view,P4 HTTPS + domain + www,Detection rate,29.134174772891715
+Gradient Boosting,D2 Domain-only view,P5 Full mimicry (P4 + clean path),Detection rate,28.322212396494894
+Gradient Boosting,D2 Domain-only view,L0 Clean legitimate,False-alarm rate,0.6153023006955591
+Gradient Boosting,D2 Domain-only view,L1 Inner page,False-alarm rate,0.6153023006955591
+Gradient Boosting,D2 Domain-only view,L2 HTTP (no TLS),False-alarm rate,0.6153023006955591
+Gradient Boosting,D2 Domain-only view,L3 Without www,False-alarm rate,0.6153023006955591
+Gradient Boosting,D2 Domain-only view,L4 Inner page over HTTP,False-alarm rate,0.6153023006955591
+XGBoost,D2 Domain-only view,P0 Clean phishing,Detection rate,97.65254441675376
+XGBoost,D2 Domain-only view,P1 Free HTTPS,Detection rate,97.65254441675376
+XGBoost,D2 Domain-only view,P2 Domain instead of IP,Detection rate,31.553983439183213
+XGBoost,D2 Domain-only view,P3 Clean landing path,Detection rate,97.65254441675376
+XGBoost,D2 Domain-only view,P4 HTTPS + domain + www,Detection rate,31.899670391510572
+XGBoost,D2 Domain-only view,P5 Full mimicry (P4 + clean path),Detection rate,30.943001849023233
+XGBoost,D2 Domain-only view,L0 Clean legitimate,False-alarm rate,1.2439807383627608
+XGBoost,D2 Domain-only view,L1 Inner page,False-alarm rate,1.2439807383627608
+XGBoost,D2 Domain-only view,L2 HTTP (no TLS),False-alarm rate,1.2439807383627608
+XGBoost,D2 Domain-only view,L3 Without www,False-alarm rate,1.2439807383627608
+XGBoost,D2 Domain-only view,L4 Inner page over HTTP,False-alarm rate,1.2439807383627608
+LightGBM,D2 Domain-only view,P0 Clean phishing,Detection rate,97.82940750864218
+LightGBM,D2 Domain-only view,P1 Free HTTPS,Detection rate,97.82940750864218
+LightGBM,D2 Domain-only view,P2 Domain instead of IP,Detection rate,31.481630356137952
+LightGBM,D2 Domain-only view,P3 Clean landing path,Detection rate,97.82940750864218
+LightGBM,D2 Domain-only view,P4 HTTPS + domain + www,Detection rate,31.71476806817268
+LightGBM,D2 Domain-only view,P5 Full mimicry (P4 + clean path),Detection rate,30.88672722887692
+LightGBM,D2 Domain-only view,L0 Clean legitimate,False-alarm rate,1.3777421080791867
+LightGBM,D2 Domain-only view,L1 Inner page,False-alarm rate,1.3777421080791867
+LightGBM,D2 Domain-only view,L2 HTTP (no TLS),False-alarm rate,1.3777421080791867
+LightGBM,D2 Domain-only view,L3 Without www,False-alarm rate,1.3777421080791867
+LightGBM,D2 Domain-only view,L4 Inner page over HTTP,False-alarm rate,1.3777421080791867
+Random Forest,D3 Format-randomised training (16),P0 Clean phishing,Detection rate,90.55390304686873
+Random Forest,D3 Format-randomised training (16),P1 Free HTTPS,Detection rate,90.15194147439504
+Random Forest,D3 Format-randomised training (16),P2 Domain instead of IP,Detection rate,66.09052174612107
+Random Forest,D3 Format-randomised training (16),P3 Clean landing path,Detection rate,92.66822091808024
+Random Forest,D3 Format-randomised training (16),P4 HTTPS + domain + www,Detection rate,68.52640887531152
+Random Forest,D3 Format-randomised training (16),P5 Full mimicry (P4 + clean path),Detection rate,25.41201061178551
+Random Forest,D3 Format-randomised training (16),L0 Clean legitimate,False-alarm rate,0.9229534510433388
+Random Forest,D3 Format-randomised training (16),L1 Inner page,False-alarm rate,0.0
+Random Forest,D3 Format-randomised training (16),L2 HTTP (no TLS),False-alarm rate,1.1369716425896201
+Random Forest,D3 Format-randomised training (16),L3 Without www,False-alarm rate,0.6821829855537721
+Random Forest,D3 Format-randomised training (16),L4 Inner page over HTTP,False-alarm rate,0.0
+Gradient Boosting,D3 Format-randomised training (16),P0 Clean phishing,Detection rate,94.97548034407912
+Gradient Boosting,D3 Format-randomised training (16),P1 Free HTTPS,Detection rate,94.95940188118016
+Gradient Boosting,D3 Format-randomised training (16),P2 Domain instead of IP,Detection rate,87.96527052013828
+Gradient Boosting,D3 Format-randomised training (16),P3 Clean landing path,Detection rate,80.64956990111746
+Gradient Boosting,D3 Format-randomised training (16),P4 HTTPS + domain + www,Detection rate,89.13095908031192
+Gradient Boosting,D3 Format-randomised training (16),P5 Full mimicry (P4 + clean path),Detection rate,28.1694669989549
+Gradient Boosting,D3 Format-randomised training (16),L0 Clean legitimate,False-alarm rate,0.9229534510433388
+Gradient Boosting,D3 Format-randomised training (16),L1 Inner page,False-alarm rate,0.05350454788657035
+Gradient Boosting,D3 Format-randomised training (16),L2 HTTP (no TLS),False-alarm rate,0.8962011771000535
+Gradient Boosting,D3 Format-randomised training (16),L3 Without www,False-alarm rate,0.4815409309791332
+Gradient Boosting,D3 Format-randomised training (16),L4 Inner page over HTTP,False-alarm rate,0.04012841091492777
+XGBoost,D3 Format-randomised training (16),P0 Clean phishing,Detection rate,97.66058364820324
+XGBoost,D3 Format-randomised training (16),P1 Free HTTPS,Detection rate,97.57215210225903
+XGBoost,D3 Format-randomised training (16),P2 Domain instead of IP,Detection rate,92.47527936329287
+XGBoost,D3 Format-randomised training (16),P3 Clean landing path,Detection rate,83.67232092611945
+XGBoost,D3 Format-randomised training (16),P4 HTTPS + domain + www,Detection rate,92.88528016721601
+XGBoost,D3 Format-randomised training (16),P5 Full mimicry (P4 + clean path),Detection rate,35.43693222927888
+XGBoost,D3 Format-randomised training (16),L0 Clean legitimate,False-alarm rate,1.0567148207597645
+XGBoost,D3 Format-randomised training (16),L1 Inner page,False-alarm rate,0.1070090957731407
+XGBoost,D3 Format-randomised training (16),L2 HTTP (no TLS),False-alarm rate,1.0834670947030496
+XGBoost,D3 Format-randomised training (16),L3 Without www,False-alarm rate,0.6821829855537721
+XGBoost,D3 Format-randomised training (16),L4 Inner page over HTTP,False-alarm rate,0.16051364365971107
+LightGBM,D3 Format-randomised training (16),P0 Clean phishing,Detection rate,97.63646595385481
+LightGBM,D3 Format-randomised training (16),P1 Free HTTPS,Detection rate,97.58823056515797
+LightGBM,D3 Format-randomised training (16),P2 Domain instead of IP,Detection rate,92.24214165125814
+LightGBM,D3 Format-randomised training (16),P3 Clean landing path,Detection rate,84.48428330251629
+LightGBM,D3 Format-randomised training (16),P4 HTTPS + domain + www,Detection rate,92.67626014952971
+LightGBM,D3 Format-randomised training (16),P5 Full mimicry (P4 + clean path),Detection rate,35.07516681405258
+LightGBM,D3 Format-randomised training (16),L0 Clean legitimate,False-alarm rate,0.9898341359015517
+LightGBM,D3 Format-randomised training (16),L1 Inner page,False-alarm rate,0.08025682182985554
+LightGBM,D3 Format-randomised training (16),L2 HTTP (no TLS),False-alarm rate,0.8694489031567684
+LightGBM,D3 Format-randomised training (16),L3 Without www,False-alarm rate,0.5484216158373462
+LightGBM,D3 Format-randomised training (16),L4 Inner page over HTTP,False-alarm rate,0.09363295880149813
+Random Forest,D4 Pure FRT + suspicious-domain,P0 Clean phishing,Detection rate,93.16665326794758
+Random Forest,D4 Pure FRT + suspicious-domain,P1 Free HTTPS,Detection rate,93.19881019374547
+Random Forest,D4 Pure FRT + suspicious-domain,P2 Domain instead of IP,Detection rate,65.23032398102741
+Random Forest,D4 Pure FRT + suspicious-domain,P3 Clean landing path,Detection rate,94.78253878929175
+Random Forest,D4 Pure FRT + suspicious-domain,P4 HTTPS + domain + www,Detection rate,66.76581718787685
+Random Forest,D4 Pure FRT + suspicious-domain,P5 Full mimicry (P4 + clean path),Detection rate,29.4396655679717
+Random Forest,D4 Pure FRT + suspicious-domain,L0 Clean legitimate,False-alarm rate,0.9363295880149813
+Random Forest,D4 Pure FRT + suspicious-domain,L1 Inner page,False-alarm rate,0.0
+Random Forest,D4 Pure FRT + suspicious-domain,L2 HTTP (no TLS),False-alarm rate,1.1503477795612627
+Random Forest,D4 Pure FRT + suspicious-domain,L3 Without www,False-alarm rate,0.6554307116104869
+Random Forest,D4 Pure FRT + suspicious-domain,L4 Inner page over HTTP,False-alarm rate,0.0
+Gradient Boosting,D4 Pure FRT + suspicious-domain,P0 Clean phishing,Detection rate,96.72803280006431
+Gradient Boosting,D4 Pure FRT + suspicious-domain,P1 Free HTTPS,Detection rate,96.71195433716537
+Gradient Boosting,D4 Pure FRT + suspicious-domain,P2 Domain instead of IP,Detection rate,90.63429536136344
+Gradient Boosting,D4 Pure FRT + suspicious-domain,P3 Clean landing path,Detection rate,92.75665246402444
+Gradient Boosting,D4 Pure FRT + suspicious-domain,P4 HTTPS + domain + www,Detection rate,91.42214004341184
+Gradient Boosting,D4 Pure FRT + suspicious-domain,P5 Full mimicry (P4 + clean path),Detection rate,38.395369402685105
+Gradient Boosting,D4 Pure FRT + suspicious-domain,L0 Clean legitimate,False-alarm rate,1.0165864098448367
+Gradient Boosting,D4 Pure FRT + suspicious-domain,L1 Inner page,False-alarm rate,0.18726591760299627
+Gradient Boosting,D4 Pure FRT + suspicious-domain,L2 HTTP (no TLS),False-alarm rate,1.0299625468164793
+Gradient Boosting,D4 Pure FRT + suspicious-domain,L3 Without www,False-alarm rate,1.0834670947030496
+Gradient Boosting,D4 Pure FRT + suspicious-domain,L4 Inner page over HTTP,False-alarm rate,0.16051364365971107
+XGBoost,D4 Pure FRT + suspicious-domain,P0 Clean phishing,Detection rate,98.97901760591688
+XGBoost,D4 Pure FRT + suspicious-domain,P1 Free HTTPS,Detection rate,98.98705683736635
+XGBoost,D4 Pure FRT + suspicious-domain,P2 Domain instead of IP,Detection rate,95.43371653669908
+XGBoost,D4 Pure FRT + suspicious-domain,P3 Clean landing path,Detection rate,95.83567810917276
+XGBoost,D4 Pure FRT + suspicious-domain,P4 HTTPS + domain + www,Detection rate,95.01567650132647
+XGBoost,D4 Pure FRT + suspicious-domain,P5 Full mimicry (P4 + clean path),Detection rate,43.29126135541442
+XGBoost,D4 Pure FRT + suspicious-domain,L0 Clean legitimate,False-alarm rate,1.3108614232209739
+XGBoost,D4 Pure FRT + suspicious-domain,L1 Inner page,False-alarm rate,0.1471375066880685
+XGBoost,D4 Pure FRT + suspicious-domain,L2 HTTP (no TLS),False-alarm rate,1.4044943820224718
+XGBoost,D4 Pure FRT + suspicious-domain,L3 Without www,False-alarm rate,1.3242375601926164
+XGBoost,D4 Pure FRT + suspicious-domain,L4 Inner page over HTTP,False-alarm rate,0.2140181915462814
+LightGBM,D4 Pure FRT + suspicious-domain,P0 Clean phishing,Detection rate,98.83431143982635
+LightGBM,D4 Pure FRT + suspicious-domain,P1 Free HTTPS,Detection rate,98.84235067127582
+LightGBM,D4 Pure FRT + suspicious-domain,P2 Domain instead of IP,Detection rate,94.82273494653911
+LightGBM,D4 Pure FRT + suspicious-domain,P3 Clean landing path,Detection rate,95.7954819519254
+LightGBM,D4 Pure FRT + suspicious-domain,P4 HTTPS + domain + www,Detection rate,94.75038186349384
+LightGBM,D4 Pure FRT + suspicious-domain,P5 Full mimicry (P4 + clean path),Detection rate,41.01615885521344
+LightGBM,D4 Pure FRT + suspicious-domain,L0 Clean legitimate,False-alarm rate,1.0165864098448367
+LightGBM,D4 Pure FRT + suspicious-domain,L1 Inner page,False-alarm rate,0.1070090957731407
+LightGBM,D4 Pure FRT + suspicious-domain,L2 HTTP (no TLS),False-alarm rate,1.1235955056179776
+LightGBM,D4 Pure FRT + suspicious-domain,L3 Without www,False-alarm rate,0.9497057249866239
+LightGBM,D4 Pure FRT + suspicious-domain,L4 Inner page over HTTP,False-alarm rate,0.1203852327447833

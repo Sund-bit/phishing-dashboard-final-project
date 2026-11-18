@@ -1,0 +1,11 @@
+{
+  "phiusiil_rows": 198435,
+  "phiusiil_phishing": 100520,
+  "phiusiil_legitimate": 97915,
+  "phishing_group_sizes": {
+    "Looks like legitimate format (HTTPS + www + homepage)": 1052,
+    "HTTPS, other formats": 47833,
+    "Plain HTTP": 51635
+  },
+  "fa_budget": 0.01
+}

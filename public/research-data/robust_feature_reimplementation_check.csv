@@ -1,0 +1,17 @@
+Feature,Match_rate
+url_length,1.0
+has_ip_address,0.9999096131442574
+dot_count,1.0
+https_flag,1.0
+url_entropy,1.0
+token_count,0.9948178202707588
+subdomain_count,0.9999196561282289
+query_param_count,1.0
+tld_length,0.9999196561282289
+path_length,1.0
+has_hyphen_in_domain,1.0
+number_of_digits,1.0
+tld_popularity,0.9988450568432893
+suspicious_file_extension,0.9964046117382397
+domain_name_length,1.0
+percentage_numeric_chars,1.0

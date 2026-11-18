@@ -1,0 +1,57 @@
+Model,Feature_set,Category,Phishing_in_test,Detected,Detection_rate,Legit_in_test,False_alarms
+Random Forest,Original (16),IP-address host,9769,9769,1.0,0,0
+Random Forest,Original (16),Fake-login pattern,246,246,1.0,21,0
+Random Forest,Original (16),Misleading subdomain,79,79,1.0,6,0
+Random Forest,Original (16),Brand impersonation / typosquat,340,340,1.0,31,0
+Random Forest,Original (16),Free-hosting platform,90,90,1.0,0,0
+Random Forest,Original (16),HTTPS phishing (looks safe),720,719,0.9986111111111111,7475,8
+Random Forest,Original (16),Short URL (< 30 chars),3105,3105,1.0,5190,1
+Gradient Boosting,Original (16),IP-address host,9769,9769,1.0,0,0
+Gradient Boosting,Original (16),Fake-login pattern,246,246,1.0,21,0
+Gradient Boosting,Original (16),Misleading subdomain,79,79,1.0,6,0
+Gradient Boosting,Original (16),Brand impersonation / typosquat,340,340,1.0,31,0
+Gradient Boosting,Original (16),Free-hosting platform,90,89,0.9888888888888889,0,0
+Gradient Boosting,Original (16),HTTPS phishing (looks safe),720,716,0.9944444444444445,7475,5
+Gradient Boosting,Original (16),Short URL (< 30 chars),3105,3105,1.0,5190,1
+XGBoost,Original (16),IP-address host,9769,9769,1.0,0,0
+XGBoost,Original (16),Fake-login pattern,246,246,1.0,21,0
+XGBoost,Original (16),Misleading subdomain,79,79,1.0,6,0
+XGBoost,Original (16),Brand impersonation / typosquat,340,340,1.0,31,0
+XGBoost,Original (16),Free-hosting platform,90,90,1.0,0,0
+XGBoost,Original (16),HTTPS phishing (looks safe),720,719,0.9986111111111111,7475,7
+XGBoost,Original (16),Short URL (< 30 chars),3105,3105,1.0,5190,1
+LightGBM,Original (16),IP-address host,9769,9769,1.0,0,0
+LightGBM,Original (16),Fake-login pattern,246,246,1.0,21,0
+LightGBM,Original (16),Misleading subdomain,79,79,1.0,6,0
+LightGBM,Original (16),Brand impersonation / typosquat,340,340,1.0,31,0
+LightGBM,Original (16),Free-hosting platform,90,90,1.0,0,0
+LightGBM,Original (16),HTTPS phishing (looks safe),720,718,0.9972222222222222,7475,6
+LightGBM,Original (16),Short URL (< 30 chars),3105,3105,1.0,5190,1
+Random Forest,Enhanced (16+29),IP-address host,9769,9769,1.0,0,0
+Random Forest,Enhanced (16+29),Fake-login pattern,246,246,1.0,21,0
+Random Forest,Enhanced (16+29),Misleading subdomain,79,79,1.0,6,0
+Random Forest,Enhanced (16+29),Brand impersonation / typosquat,340,340,1.0,31,0
+Random Forest,Enhanced (16+29),Free-hosting platform,90,90,1.0,0,0
+Random Forest,Enhanced (16+29),HTTPS phishing (looks safe),720,720,1.0,7475,8
+Random Forest,Enhanced (16+29),Short URL (< 30 chars),3105,3105,1.0,5190,1
+Gradient Boosting,Enhanced (16+29),IP-address host,9769,9769,1.0,0,0
+Gradient Boosting,Enhanced (16+29),Fake-login pattern,246,246,1.0,21,0
+Gradient Boosting,Enhanced (16+29),Misleading subdomain,79,79,1.0,6,0
+Gradient Boosting,Enhanced (16+29),Brand impersonation / typosquat,340,340,1.0,31,0
+Gradient Boosting,Enhanced (16+29),Free-hosting platform,90,90,1.0,0,0
+Gradient Boosting,Enhanced (16+29),HTTPS phishing (looks safe),720,717,0.9958333333333333,7475,4
+Gradient Boosting,Enhanced (16+29),Short URL (< 30 chars),3105,3105,1.0,5190,1
+XGBoost,Enhanced (16+29),IP-address host,9769,9769,1.0,0,0
+XGBoost,Enhanced (16+29),Fake-login pattern,246,246,1.0,21,0
+XGBoost,Enhanced (16+29),Misleading subdomain,79,79,1.0,6,0
+XGBoost,Enhanced (16+29),Brand impersonation / typosquat,340,340,1.0,31,0
+XGBoost,Enhanced (16+29),Free-hosting platform,90,90,1.0,0,0
+XGBoost,Enhanced (16+29),HTTPS phishing (looks safe),720,720,1.0,7475,6
+XGBoost,Enhanced (16+29),Short URL (< 30 chars),3105,3105,1.0,5190,1
+LightGBM,Enhanced (16+29),IP-address host,9769,9769,1.0,0,0
+LightGBM,Enhanced (16+29),Fake-login pattern,246,246,1.0,21,0
+LightGBM,Enhanced (16+29),Misleading subdomain,79,79,1.0,6,0
+LightGBM,Enhanced (16+29),Brand impersonation / typosquat,340,340,1.0,31,0
+LightGBM,Enhanced (16+29),Free-hosting platform,90,90,1.0,0,0
+LightGBM,Enhanced (16+29),HTTPS phishing (looks safe),720,719,0.9986111111111111,7475,6
+LightGBM,Enhanced (16+29),Short URL (< 30 chars),3105,3105,1.0,5190,1

@@ -1,0 +1,23 @@
+Test,Example_URL
+P0 Clean phishing,http://123.190.79.28:46286/bin.sh
+P0 Clean phishing,http://77.37.96.100/z/spc
+P1 Free HTTPS,https://123.190.79.28:46286/bin.sh
+P1 Free HTTPS,https://77.37.96.100/z/spc
+P2 Domain instead of IP,http://tqshoes.com/bin.sh
+P2 Domain instead of IP,http://stellarsway.shop/z/spc
+P3 Clean landing path,http://123.190.79.28:46286
+P3 Clean landing path,http://77.37.96.100
+P4 HTTPS + domain + www,https://www.limacamposadv.pm/bin.sh
+P4 HTTPS + domain + www,https://www.rounbenlogin.com/z/spc
+P5 Full mimicry (P4 + clean path),https://www.djtool-for-spotify.org
+P5 Full mimicry (P4 + clean path),https://www.stellarsway.bond
+L0 Clean legitimate,https://www.greekislandhouse.com
+L0 Clean legitimate,https://www.christinekohut.com
+L1 Inner page,https://www.greekislandhouse.com/questions/429336/library-museum
+L1 Inner page,https://www.christinekohut.com/shop/item?id=205505
+L2 HTTP (no TLS),http://www.greekislandhouse.com
+L2 HTTP (no TLS),http://www.christinekohut.com
+L3 Without www,https://greekislandhouse.com
+L3 Without www,https://christinekohut.com
+L4 Inner page over HTTP,http://www.greekislandhouse.com/help/museum
+L4 Inner page over HTTP,http://www.christinekohut.com/help/recipes

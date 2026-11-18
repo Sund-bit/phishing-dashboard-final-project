@@ -1,0 +1,36 @@
+{
+  "rows_raw": 101219,
+  "rows_clean": 100872,
+  "phishing": 63492,
+  "legitimate": 37380,
+  "train_rows": 80697,
+  "test_rows": 20175,
+  "grouped_train_rows": 81137,
+  "grouped_test_rows": 19735,
+  "unique_domains": 63156,
+  "paper_models": [
+    "Random Forest",
+    "Gradient Boosting"
+  ],
+  "new_models": [
+    "XGBoost",
+    "LightGBM"
+  ],
+  "n_original_features": 16,
+  "n_novel_features": 29,
+  "seed": 42,
+  "test_size": 0.2,
+  "fast_mode": false,
+  "ip_free_rows": 51977,
+  "ip_free_phishing": 14597,
+  "ip_free_legitimate": 37380,
+  "robust_rows": 99572,
+  "robust_train": 71691,
+  "robust_test": 19915,
+  "robust_aug_rows": 143382,
+  "robust_reimpl_match": 0.9994,
+  "robust_fast_mode": false,
+  "robust_val": 7966,
+  "robust_fa_budget": 0.01,
+  "robust_aug_mode": "random"
+}

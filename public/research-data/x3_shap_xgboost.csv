@@ -1,0 +1,213 @@
+Defence,Data,Feature,Group,Mean_abs_SHAP,Share_pct
+D0 Standard (16 features),LegitPhish test,url_length,Format / structure,0.7831686,4.952573
+D0 Standard (16 features),LegitPhish test,has_ip_address,Domain name,0.0,0.0
+D0 Standard (16 features),LegitPhish test,dot_count,Format / structure,0.8215244,5.195126
+D0 Standard (16 features),LegitPhish test,https_flag,Format / structure,2.77879,17.57241
+D0 Standard (16 features),LegitPhish test,url_entropy,Format / structure,0.2451515,1.5502802
+D0 Standard (16 features),LegitPhish test,token_count,Format / structure,0.73410106,4.6422815
+D0 Standard (16 features),LegitPhish test,subdomain_count,Format / structure,0.8376444,5.2970653
+D0 Standard (16 features),LegitPhish test,query_param_count,Format / structure,0.0054713725,0.034599666
+D0 Standard (16 features),LegitPhish test,tld_length,Domain name,0.008714402,0.055107817
+D0 Standard (16 features),LegitPhish test,path_length,Format / structure,5.711546,36.118465
+D0 Standard (16 features),LegitPhish test,has_hyphen_in_domain,Domain name,0.030226408,0.19114466
+D0 Standard (16 features),LegitPhish test,number_of_digits,Format / structure,0.32064402,2.027677
+D0 Standard (16 features),LegitPhish test,tld_popularity,Domain name,1.3518454,8.548751
+D0 Standard (16 features),LegitPhish test,suspicious_file_extension,Format / structure,0.10827958,0.68473446
+D0 Standard (16 features),LegitPhish test,domain_name_length,Domain name,0.6069569,3.8382518
+D0 Standard (16 features),LegitPhish test,percentage_numeric_chars,Format / structure,1.4693041,9.291532
+D0 Standard (16 features),PhiUSIIL,url_length,Format / structure,1.1481303,7.4739165
+D0 Standard (16 features),PhiUSIIL,has_ip_address,Domain name,0.0,0.0
+D0 Standard (16 features),PhiUSIIL,dot_count,Format / structure,0.7113672,4.6307454
+D0 Standard (16 features),PhiUSIIL,https_flag,Format / structure,2.3507197,15.302342
+D0 Standard (16 features),PhiUSIIL,url_entropy,Format / structure,0.33291703,2.1671705
+D0 Standard (16 features),PhiUSIIL,token_count,Format / structure,1.1251643,7.324415
+D0 Standard (16 features),PhiUSIIL,subdomain_count,Format / structure,1.1939651,7.772284
+D0 Standard (16 features),PhiUSIIL,query_param_count,Format / structure,0.008029065,0.052266337
+D0 Standard (16 features),PhiUSIIL,tld_length,Domain name,0.014492123,0.09433852
+D0 Standard (16 features),PhiUSIIL,path_length,Format / structure,5.957227,38.77941
+D0 Standard (16 features),PhiUSIIL,has_hyphen_in_domain,Domain name,0.13436632,0.8746766
+D0 Standard (16 features),PhiUSIIL,number_of_digits,Format / structure,0.32549107,2.11883
+D0 Standard (16 features),PhiUSIIL,tld_popularity,Domain name,1.0558196,6.8730073
+D0 Standard (16 features),PhiUSIIL,suspicious_file_extension,Format / structure,0.07882672,0.51313365
+D0 Standard (16 features),PhiUSIIL,domain_name_length,Domain name,0.47709644,3.1057267
+D0 Standard (16 features),PhiUSIIL,percentage_numeric_chars,Format / structure,0.4482173,2.9177337
+D4 Pure FRT + suspicious-domain,LegitPhish test,url_length,Format / structure,0.19099352,1.3053491
+D4 Pure FRT + suspicious-domain,LegitPhish test,has_ip_address,Domain name,0.024504948,0.16747957
+D4 Pure FRT + suspicious-domain,LegitPhish test,dot_count,Format / structure,0.96800154,6.6158266
+D4 Pure FRT + suspicious-domain,LegitPhish test,https_flag,Format / structure,0.018941091,0.12945327
+D4 Pure FRT + suspicious-domain,LegitPhish test,url_entropy,Format / structure,0.20851217,1.4250808
+D4 Pure FRT + suspicious-domain,LegitPhish test,token_count,Format / structure,0.4336337,2.9636784
+D4 Pure FRT + suspicious-domain,LegitPhish test,subdomain_count,Format / structure,0.8863336,6.0576653
+D4 Pure FRT + suspicious-domain,LegitPhish test,query_param_count,Format / structure,0.016302444,0.111419395
+D4 Pure FRT + suspicious-domain,LegitPhish test,tld_length,Domain name,0.17047578,1.1651202
+D4 Pure FRT + suspicious-domain,LegitPhish test,path_length,Format / structure,0.87582,5.98581
+D4 Pure FRT + suspicious-domain,LegitPhish test,has_hyphen_in_domain,Domain name,0.040124346,0.27423066
+D4 Pure FRT + suspicious-domain,LegitPhish test,number_of_digits,Format / structure,0.2178912,1.4891819
+D4 Pure FRT + suspicious-domain,LegitPhish test,tld_popularity,Domain name,0.2542516,1.7376877
+D4 Pure FRT + suspicious-domain,LegitPhish test,suspicious_file_extension,Format / structure,1.0235007,6.9951363
+D4 Pure FRT + suspicious-domain,LegitPhish test,domain_name_length,Domain name,1.3661681,9.337104
+D4 Pure FRT + suspicious-domain,LegitPhish test,percentage_numeric_chars,Format / structure,0.09983073,0.6822952
+D4 Pure FRT + suspicious-domain,LegitPhish test,ip_literal_host,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,LegitPhish test,login_keyword_count,Suspicious-domain (novel),0.03193898,0.21828762
+D4 Pure FRT + suspicious-domain,LegitPhish test,login_in_host_flag,Suspicious-domain (novel),0.0035578855,0.024316443
+D4 Pure FRT + suspicious-domain,LegitPhish test,login_in_path_flag,Suspicious-domain (novel),0.053806793,0.36774364
+D4 Pure FRT + suspicious-domain,LegitPhish test,path_has_password_word,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,LegitPhish test,server_script_form_flag,Suspicious-domain (novel),0.047186024,0.32249385
+D4 Pure FRT + suspicious-domain,LegitPhish test,subdomain_depth,Suspicious-domain (novel),0.30302316,2.071018
+D4 Pure FRT + suspicious-domain,LegitPhish test,tld_token_in_subdomain,Suspicious-domain (novel),9.156567e-05,0.0006258075
+D4 Pure FRT + suspicious-domain,LegitPhish test,full_domain_in_subdomain,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,LegitPhish test,longest_subdomain_label,Suspicious-domain (novel),0.2555959,1.7468754
+D4 Pure FRT + suspicious-domain,LegitPhish test,subdomain_entropy,Suspicious-domain (novel),0.10053752,0.6871258
+D4 Pure FRT + suspicious-domain,LegitPhish test,random_looking_subdomain,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,LegitPhish test,brand_in_subdomain_flag,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,LegitPhish test,brand_in_path_flag,Suspicious-domain (novel),1.47273e-05,0.00010065404
+D4 Pure FRT + suspicious-domain,LegitPhish test,brand_domain_mismatch_flag,Suspicious-domain (novel),0.001479832,0.0101139415
+D4 Pure FRT + suspicious-domain,LegitPhish test,brand_combo_domain_flag,Suspicious-domain (novel),0.0013559709,0.00926741
+D4 Pure FRT + suspicious-domain,LegitPhish test,typosquat_flag,Suspicious-domain (novel),0.00015999546,0.0010934923
+D4 Pure FRT + suspicious-domain,LegitPhish test,free_hosting_flag,Suspicious-domain (novel),0.0044970894,0.03073545
+D4 Pure FRT + suspicious-domain,LegitPhish test,risky_tld_flag,Suspicious-domain (novel),0.037422176,0.25576264
+D4 Pure FRT + suspicious-domain,LegitPhish test,punycode_flag,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,LegitPhish test,userinfo_at_symbol_flag,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,LegitPhish test,nonstandard_port_flag,Suspicious-domain (novel),1.1749618,8.0303
+D4 Pure FRT + suspicious-domain,LegitPhish test,url_shortener_flag,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,LegitPhish test,percent_encoding_count,Suspicious-domain (novel),0.020869207,0.14263102
+D4 Pure FRT + suspicious-domain,LegitPhish test,path_double_slash_flag,Suspicious-domain (novel),0.00093254156,0.006373475
+D4 Pure FRT + suspicious-domain,LegitPhish test,host_digit_ratio,Suspicious-domain (novel),3.1644373,21.62741
+D4 Pure FRT + suspicious-domain,LegitPhish test,host_hyphen_count,Suspicious-domain (novel),0.022973286,0.15701139
+D4 Pure FRT + suspicious-domain,LegitPhish test,credential_harvest_combo,Suspicious-domain (novel),7.1608134e-05,0.0004894073
+D4 Pure FRT + suspicious-domain,LegitPhish test,sdrs_score,Suspicious-domain (novel),2.6114056,17.847706
+D4 Pure FRT + suspicious-domain,PhiUSIIL,url_length,Format / structure,0.19091167,3.0561757
+D4 Pure FRT + suspicious-domain,PhiUSIIL,has_ip_address,Domain name,0.00058376184,0.009345049
+D4 Pure FRT + suspicious-domain,PhiUSIIL,dot_count,Format / structure,0.37320426,5.9743743
+D4 Pure FRT + suspicious-domain,PhiUSIIL,https_flag,Format / structure,0.020925216,0.33497763
+D4 Pure FRT + suspicious-domain,PhiUSIIL,url_entropy,Format / structure,0.22730531,3.6387768
+D4 Pure FRT + suspicious-domain,PhiUSIIL,token_count,Format / structure,0.26026016,4.166329
+D4 Pure FRT + suspicious-domain,PhiUSIIL,subdomain_count,Format / structure,0.531726,8.512042
+D4 Pure FRT + suspicious-domain,PhiUSIIL,query_param_count,Format / structure,0.032689653,0.52330655
+D4 Pure FRT + suspicious-domain,PhiUSIIL,tld_length,Domain name,0.055802446,0.8933036
+D4 Pure FRT + suspicious-domain,PhiUSIIL,path_length,Format / structure,0.33722398,5.3983903
+D4 Pure FRT + suspicious-domain,PhiUSIIL,has_hyphen_in_domain,Domain name,0.10492542,1.67968
+D4 Pure FRT + suspicious-domain,PhiUSIIL,number_of_digits,Format / structure,0.22828054,3.6543887
+D4 Pure FRT + suspicious-domain,PhiUSIIL,tld_popularity,Domain name,0.17767484,2.8442764
+D4 Pure FRT + suspicious-domain,PhiUSIIL,suspicious_file_extension,Format / structure,0.10938886,1.7511322
+D4 Pure FRT + suspicious-domain,PhiUSIIL,domain_name_length,Domain name,0.740409,11.852707
+D4 Pure FRT + suspicious-domain,PhiUSIIL,percentage_numeric_chars,Format / structure,0.10058408,1.6101826
+D4 Pure FRT + suspicious-domain,PhiUSIIL,ip_literal_host,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,PhiUSIIL,login_keyword_count,Suspicious-domain (novel),0.045590293,0.7298241
+D4 Pure FRT + suspicious-domain,PhiUSIIL,login_in_host_flag,Suspicious-domain (novel),0.006902481,0.110497154
+D4 Pure FRT + suspicious-domain,PhiUSIIL,login_in_path_flag,Suspicious-domain (novel),0.10483336,1.6782062
+D4 Pure FRT + suspicious-domain,PhiUSIIL,path_has_password_word,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,PhiUSIIL,server_script_form_flag,Suspicious-domain (novel),0.054914676,0.87909186
+D4 Pure FRT + suspicious-domain,PhiUSIIL,subdomain_depth,Suspicious-domain (novel),0.21817511,3.4926176
+D4 Pure FRT + suspicious-domain,PhiUSIIL,tld_token_in_subdomain,Suspicious-domain (novel),0.000163227,0.0026129906
+D4 Pure FRT + suspicious-domain,PhiUSIIL,full_domain_in_subdomain,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,PhiUSIIL,longest_subdomain_label,Suspicious-domain (novel),0.39328918,6.2959
+D4 Pure FRT + suspicious-domain,PhiUSIIL,subdomain_entropy,Suspicious-domain (novel),0.12568824,2.012058
+D4 Pure FRT + suspicious-domain,PhiUSIIL,random_looking_subdomain,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,PhiUSIIL,brand_in_subdomain_flag,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,PhiUSIIL,brand_in_path_flag,Suspicious-domain (novel),4.52607e-05,0.0007245479
+D4 Pure FRT + suspicious-domain,PhiUSIIL,brand_domain_mismatch_flag,Suspicious-domain (novel),0.0010817803,0.017317489
+D4 Pure FRT + suspicious-domain,PhiUSIIL,brand_combo_domain_flag,Suspicious-domain (novel),0.0022135729,0.03543559
+D4 Pure FRT + suspicious-domain,PhiUSIIL,typosquat_flag,Suspicious-domain (novel),0.0005364709,0.008588
+D4 Pure FRT + suspicious-domain,PhiUSIIL,free_hosting_flag,Suspicious-domain (novel),0.12870193,2.060302
+D4 Pure FRT + suspicious-domain,PhiUSIIL,risky_tld_flag,Suspicious-domain (novel),0.0633928,1.0148125
+D4 Pure FRT + suspicious-domain,PhiUSIIL,punycode_flag,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,PhiUSIIL,userinfo_at_symbol_flag,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,PhiUSIIL,nonstandard_port_flag,Suspicious-domain (novel),0.0028289685,0.045287043
+D4 Pure FRT + suspicious-domain,PhiUSIIL,url_shortener_flag,Suspicious-domain (novel),0.0,0.0
+D4 Pure FRT + suspicious-domain,PhiUSIIL,percent_encoding_count,Suspicious-domain (novel),0.009889228,0.15830997
+D4 Pure FRT + suspicious-domain,PhiUSIIL,path_double_slash_flag,Suspicious-domain (novel),0.0017488725,0.027996518
+D4 Pure FRT + suspicious-domain,PhiUSIIL,host_digit_ratio,Suspicious-domain (novel),0.6393804,10.235408
+D4 Pure FRT + suspicious-domain,PhiUSIIL,host_hyphen_count,Suspicious-domain (novel),0.07085861,1.1343277
+D4 Pure FRT + suspicious-domain,PhiUSIIL,credential_harvest_combo,Suspicious-domain (novel),0.00016754272,0.0026820782
+D4 Pure FRT + suspicious-domain,PhiUSIIL,sdrs_score,Suspicious-domain (novel),0.8844532,14.158612
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,url_length,Format / structure,0.14255093,0.9343983
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,has_ip_address,Domain name,0.09131845,0.5985776
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,dot_count,Format / structure,0.84580415,5.5441093
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,https_flag,Format / structure,0.24207279,1.5867479
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,url_entropy,Format / structure,0.20807028,1.3638669
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,token_count,Format / structure,0.62252384,4.080543
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,subdomain_count,Format / structure,0.80919427,5.304137
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,query_param_count,Format / structure,0.015462986,0.10135737
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,tld_length,Domain name,0.10606915,0.69526607
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,path_length,Format / structure,0.8636805,5.661286
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,has_hyphen_in_domain,Domain name,0.033523098,0.21973848
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,number_of_digits,Format / structure,0.30567947,2.0036795
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,tld_popularity,Domain name,0.26758942,1.7540052
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,suspicious_file_extension,Format / structure,1.0321327,6.7654634
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,domain_name_length,Domain name,1.3678986,8.966353
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,percentage_numeric_chars,Format / structure,0.12849718,0.84227824
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,ip_literal_host,Suspicious-domain (novel),0.028619116,0.18759367
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,login_keyword_count,Suspicious-domain (novel),0.009778923,0.06409926
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,login_in_host_flag,Suspicious-domain (novel),0.0054700393,0.03585522
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,login_in_path_flag,Suspicious-domain (novel),0.062108327,0.40711
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,path_has_password_word,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,server_script_form_flag,Suspicious-domain (novel),0.065362215,0.42843875
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,subdomain_depth,Suspicious-domain (novel),0.31614813,2.0722997
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,tld_token_in_subdomain,Suspicious-domain (novel),0.00083005725,0.005440891
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,full_domain_in_subdomain,Suspicious-domain (novel),2.2311351e-05,0.0001462473
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,longest_subdomain_label,Suspicious-domain (novel),0.27492437,1.8020848
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,subdomain_entropy,Suspicious-domain (novel),0.10931049,0.71651256
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,random_looking_subdomain,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,brand_in_subdomain_flag,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,brand_in_path_flag,Suspicious-domain (novel),1.11971385e-05,7.339543e-05
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,brand_domain_mismatch_flag,Suspicious-domain (novel),0.00040044053,0.0026248228
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,brand_combo_domain_flag,Suspicious-domain (novel),0.0027841346,0.01824955
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,typosquat_flag,Suspicious-domain (novel),0.0029135048,0.019097552
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,free_hosting_flag,Suspicious-domain (novel),0.0011100922,0.007276474
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,risky_tld_flag,Suspicious-domain (novel),0.052729018,0.34563017
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,punycode_flag,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,userinfo_at_symbol_flag,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,nonstandard_port_flag,Suspicious-domain (novel),1.0568591,6.9275403
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,url_shortener_flag,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,percent_encoding_count,Suspicious-domain (novel),0.018617842,0.122036934
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,path_double_slash_flag,Suspicious-domain (novel),0.0008510233,0.00557832
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,host_digit_ratio,Suspicious-domain (novel),3.1283755,20.505995
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,host_hyphen_count,Suspicious-domain (novel),0.02500543,0.16390654
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,credential_harvest_combo,Suspicious-domain (novel),3.5224173e-05,0.00023088876
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,LegitPhish test,sdrs_score,Suspicious-domain (novel),3.011573,19.740374
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,url_length,Format / structure,0.18610172,2.7047467
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,has_ip_address,Domain name,0.001051752,0.01528585
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,dot_count,Format / structure,0.25598353,3.7203882
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,https_flag,Format / structure,0.34116825,4.958438
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,url_entropy,Format / structure,0.2235599,3.2491531
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,token_count,Format / structure,0.37665135,5.4741383
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,subdomain_count,Format / structure,0.59495217,8.646858
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,query_param_count,Format / structure,0.034039214,0.4947158
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,tld_length,Domain name,0.05432338,0.7895198
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,path_length,Format / structure,0.3929044,5.7103558
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,has_hyphen_in_domain,Domain name,0.113513425,1.6497704
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,number_of_digits,Format / structure,0.13423076,1.9508699
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,tld_popularity,Domain name,0.17180204,2.4969199
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,suspicious_file_extension,Format / structure,0.14519764,2.1102593
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,domain_name_length,Domain name,0.6843688,9.946412
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,percentage_numeric_chars,Format / structure,0.086010635,1.2500529
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,ip_literal_host,Suspicious-domain (novel),0.000722939,0.01050698
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,login_keyword_count,Suspicious-domain (novel),0.023636786,0.34353
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,login_in_host_flag,Suspicious-domain (novel),0.005358278,0.077875614
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,login_in_path_flag,Suspicious-domain (novel),0.082227975,1.1950768
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,path_has_password_word,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,server_script_form_flag,Suspicious-domain (novel),0.048211135,0.7006863
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,subdomain_depth,Suspicious-domain (novel),0.319739,4.6469917
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,tld_token_in_subdomain,Suspicious-domain (novel),0.0021356721,0.031039223
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,full_domain_in_subdomain,Suspicious-domain (novel),8.250093e-05,0.0011990439
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,longest_subdomain_label,Suspicious-domain (novel),0.48916888,7.109435
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,subdomain_entropy,Suspicious-domain (novel),0.14432663,2.0976002
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,random_looking_subdomain,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,brand_in_subdomain_flag,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,brand_in_path_flag,Suspicious-domain (novel),4.3533644e-05,0.000632705
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,brand_domain_mismatch_flag,Suspicious-domain (novel),0.0013512196,0.019638224
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,brand_combo_domain_flag,Suspicious-domain (novel),0.001725527,0.025078297
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,typosquat_flag,Suspicious-domain (novel),0.0022498425,0.032698542
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,free_hosting_flag,Suspicious-domain (novel),0.026301403,0.38225675
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,risky_tld_flag,Suspicious-domain (novel),0.12947685,1.8817779
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,punycode_flag,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,userinfo_at_symbol_flag,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,nonstandard_port_flag,Suspicious-domain (novel),0.005635436,0.08190375
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,url_shortener_flag,Suspicious-domain (novel),0.0,0.0
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,percent_encoding_count,Suspicious-domain (novel),0.008618615,0.12526037
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,path_double_slash_flag,Suspicious-domain (novel),0.0016245156,0.023610227
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,host_digit_ratio,Suspicious-domain (novel),0.76229274,11.078936
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,host_hyphen_count,Suspicious-domain (novel),0.059268877,0.8613962
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,credential_harvest_combo,Suspicious-domain (novel),0.00024133697,0.0035075194
+D6 Proposed: mixed FRT (clean + 2 copies) + suspicious-domain,PhiUSIIL,sdrs_score,Suspicious-domain (novel),0.97026056,14.101479

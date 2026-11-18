@@ -1,0 +1,21 @@
+Novelty (final):
+
+PROBLEM
+Phishing URL detectors reach about 99.9% on public benchmarks, but they learn format shortcuts.
+Legitimate URLs in BOTH LegitPhish and PhiUSIIL are 100% HTTPS, "www." and bare homepages, so three
+yes/no format rules give 99.6% / 99.4%. Standard models (trees and a character-level CNN) then fail on
+cheap attacker edits and flag normal legitimate pages: robust balanced accuracy is only 42-59%.
+Cross-dataset testing hides the problem, because both datasets share the shortcut.
+
+CONTRIBUTIONS
+1. Shortcut audit of two independent public datasets (LegitPhish, PhiUSIIL).
+2. A robustness benchmark of realistic attacker edits and normal page variations, built from test URLs,
+   evaluated at a fixed 1% false-alarm budget; plus a real format-matched test (1,052 PhiUSIIL phishing
+   URLs written exactly like legitimate ones).
+3. Mixed format-randomised training (clean URLs + randomised copies of both classes) with 29
+   suspicious-domain features and the SDRS score: robust balanced accuracy +41 points
+   (12/12 seed x model pairs, Wilcoxon p < 0.001), clean F1 within 0.3 points, cross-dataset AUC 92-94%.
+   It works for Random Forest, Gradient Boosting, XGBoost, LightGBM and a character-level CNN.
+4. TreeSHAP shows the standard model takes 89% of its decision from format features; the proposed one 40%.
+5. The 29 features improve real format-matched detection (AUC +2.4, 12/12, p < 0.001); URL-only
+   detection of format-matched phishing stays at or below 87% AUC (limit, future work).

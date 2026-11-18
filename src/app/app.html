@@ -1,0 +1,708 @@
+﻿<div class="dashboard">
+  <header class="topbar">
+    <a class="brand" href="./">
+      <span class="brand-icon">LP</span>
+      <span>
+        <strong>LegitPhish</strong>
+        <small>Research &amp; Analytics</small>
+      </span>
+    </a>
+    <span class="status"><i></i> Reproducible experiment · seed {{ meta['seed'] ?? 42 }}</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">MACHINE LEARNING / URL SECURITY</p>
+      <h1>Beyond 99.9%<br><span>Shortcut-Robust Phishing URL Detection</span></h1>
+      <p class="intro">
+        Four classifiers on LegitPhish (stratified 80/20) reach about 99.9% accuracy, but they learn
+        dataset shortcuts (HTTPS, www, empty path, raw IP hosts). We expose these shortcuts, build an
+        evasion benchmark of realistic attacker edits and normal page variations, and propose
+        format-randomised training with suspicious-domain features.
+      </p>
+      <div class="hero-tags">
+        @for (m of main; track m['Model']) {
+          <span>{{ m['Model'] }}</span>
+        }
+      </div>
+    </section>
+
+    @if (loading) {
+      <div class="notice">Loading research results...</div>
+    }
+    @if (error) {
+      <div class="notice error">{{ error }}</div>
+    }
+
+    @if (!loading && !error) {
+      <!-- 01 Setup -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / EXPERIMENTAL SETUP</p>
+            <h2>Dataset &amp; protocol</h2>
+          </div>
+          <p class="source">Source: experiment_meta.json</p>
+        </div>
+        <div class="stat-grid">
+          <article><span>URLs after cleaning</span><strong>{{ meta['rows_clean'] }}</strong><small>raw {{ meta['rows_raw'] }}, duplicates removed</small></article>
+          <article><span>Phishing / Legitimate</span><strong>{{ meta['phishing'] }} / {{ meta['legitimate'] }}</strong><small>positive class = phishing</small></article>
+          <article><span>Train / Test (80/20)</span><strong>{{ meta['train_rows'] }} / {{ meta['test_rows'] }}</strong><small>stratified, random_state = {{ meta['seed'] }}</small></article>
+          <article><span>Features</span><strong>{{ meta['n_original_features'] }} + {{ meta['n_novel_features'] }}</strong><small>original + novel suspicious-domain</small></article>
+        </div>
+      </section>
+
+      <!-- 02 Model cards -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / MODEL EVALUATION</p>
+            <h2>Four-model comparison (original features)</h2>
+          </div>
+          <p class="source">Source: main_four_models.csv</p>
+        </div>
+        <div class="model-grid four">
+          @for (m of main; track m['Model']; let i = $index) {
+            <article class="model-card">
+              <p class="card-label">{{ m['Role'] }}</p>
+              <h3>{{ m['Model'] }}</h3>
+              <div class="primary-metric">
+                <span>Accuracy</span>
+                <strong>{{ pct(m, 'Accuracy') }}</strong>
+                <div class="progress"><span [style.width.%]="bar(m, 'Accuracy')" [style.background]="color(i)"></span></div>
+              </div>
+              <div class="metric-grid">
+                <div><span>Precision</span><strong>{{ pct(m, 'Precision') }}</strong></div>
+                <div><span>Recall</span><strong>{{ pct(m, 'Recall') }}</strong></div>
+                <div><span>F1-score</span><strong>{{ pct(m, 'F1') }}</strong></div>
+                <div><span>ROC-AUC</span><strong>{{ pct(m, 'ROC_AUC', 3) }}</strong></div>
+                <div><span>MCC</span><strong>{{ pct(m, 'MCC') }}</strong></div>
+                <div><span>Train time</span><strong>{{ m['Train_seconds'] }} s</strong></div>
+              </div>
+              <div class="counts">
+                <span>TP <b>{{ m['TP'] }}</b></span>
+                <span>TN <b>{{ m['TN'] }}</b></span>
+                <span>FP <b>{{ m['FP'] }}</b></span>
+                <span>FN <b>{{ m['FN'] }}</b></span>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+
+      <!-- 03 Metric bars -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / VISUAL ANALYTICS</p>
+            <h2>The five evaluation metrics</h2>
+          </div>
+          <p class="source">Test set, 20% hold-out</p>
+        </div>
+        <div class="chart-panel">
+          <div class="metric-chart">
+            @for (item of metrics; track item.key) {
+              <div class="chart-row">
+                <div class="chart-label">
+                  <strong>{{ item.label }}</strong>
+                  @for (m of main; track m['Model']) {
+                    <span class="chart-score">{{ m['Model'] }}: {{ pct(m, item.key, 3) }}</span>
+                  }
+                </div>
+                <div class="bar-stack">
+                  @for (m of main; track m['Model']; let i = $index) {
+                    <div class="bar-line">
+                      <span class="bar" [style.width.%]="bar(m, item.key)" [style.background]="color(i)"></span>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+          <div class="chart-legend">
+            @for (m of main; track m['Model']; let i = $index) {
+              <span><i [style.background]="color(i)"></i>{{ m['Model'] }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Model</th><th>5-fold CV Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>ROC-AUC</th></tr>
+            </thead>
+            <tbody>
+              @for (name of modelNames; track name) {
+                <tr>
+                  <td class="model-cell">{{ name }}</td>
+                  <td>{{ cvText(name, 'accuracy') }}</td>
+                  <td>{{ cvText(name, 'precision') }}</td>
+                  <td>{{ cvText(name, 'recall') }}</td>
+                  <td>{{ cvText(name, 'f1') }}</td>
+                  <td>{{ cvText(name, 'roc_auc') }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="footnote">Mean ± std (%) of 5-fold stratified cross-validation on the 80% training portion.</p>
+      </section>
+
+      <!-- 04 ROC -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">04 / ROC CURVES</p>
+            <h2>Receiver operating characteristic</h2>
+          </div>
+          <p class="source">Source: roc_curves.json</p>
+        </div>
+        <div class="chart-panel">
+          <div class="toggle-row">
+            <button [class.active]="rocSplit === 'Stratified 80/20' && rocFeatures === 'Original (16)'" (click)="setRoc('Stratified 80/20', 'Original (16)')">Stratified · original</button>
+            <button [class.active]="rocSplit === 'Stratified 80/20' && rocFeatures !== 'Original (16)'" (click)="setRoc('Stratified 80/20', enhancedName())">Stratified · enhanced</button>
+            <button [class.active]="rocSplit !== 'Stratified 80/20' && rocFeatures === 'Original (16)'" (click)="setRoc('Domain-grouped 80/20', 'Original (16)')">Domain-grouped · original</button>
+            <button [class.active]="rocSplit !== 'Stratified 80/20' && rocFeatures !== 'Original (16)'" (click)="setRoc('Domain-grouped 80/20', enhancedName())">Domain-grouped · enhanced</button>
+          </div>
+          <svg class="roc" viewBox="0 0 500 360" role="img" aria-label="ROC curves">
+            <rect x="40" y="20" width="440" height="300" class="roc-bg"></rect>
+            @for (t of [0, 0.005, 0.01, 0.015, 0.02]; track t) {
+              <line [attr.x1]="40 + t / 0.02 * 440" [attr.x2]="40 + t / 0.02 * 440" y1="20" y2="320" class="roc-grid"></line>
+              <text [attr.x]="40 + t / 0.02 * 440" y="338" class="roc-tick" text-anchor="middle">{{ t }}</text>
+            }
+            @for (t of [0.98, 0.985, 0.99, 0.995, 1]; track t) {
+              <line x1="40" x2="480" [attr.y1]="20 + (1 - t) / 0.02 * 300" [attr.y2]="20 + (1 - t) / 0.02 * 300" class="roc-grid"></line>
+              <text x="34" [attr.y]="24 + (1 - t) / 0.02 * 300" class="roc-tick" text-anchor="end">{{ t }}</text>
+            }
+            @for (name of modelNames; track name; let i = $index) {
+              <path [attr.d]="rocPath(name)" fill="none" [attr.stroke]="color(i)" stroke-width="2"></path>
+            }
+            <text x="260" y="356" class="roc-tick" text-anchor="middle">False positive rate (zoomed: FPR 0–0.02, TPR 0.98–1)</text>
+          </svg>
+          <div class="chart-legend">
+            @for (name of modelNames; track name; let i = $index) {
+              <span><i [style.background]="color(i)"></i>{{ name }} · AUC {{ rocAuc(name) }}</span>
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- R1 Shortcut audit -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">05 / MAIN NOVELTY · PROBLEM</p>
+            <h2>Shortcut audit: why 99.9% is misleading</h2>
+          </div>
+          <p class="source">Source: robust_shortcut_audit.csv</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Attribute</th><th>% of phishing URLs</th><th>% of legitimate URLs</th><th>Test accuracy using only this</th></tr></thead>
+            <tbody>
+              @for (r of audit; track r['Attribute']) {
+                <tr>
+                  <td class="model-cell">{{ r['Attribute'] }}</td>
+                  <td>{{ p2(r, 'Pct_of_phishing') }}</td>
+                  <td>{{ p2(r, 'Pct_of_legitimate') }}</td>
+                  <td><strong>{{ p2(r, 'Accuracy_using_only_this_attribute', 2) }}</strong></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="footnote">
+          Three yes/no rules about the URL's format (HTTPS, www, path) already reach almost the
+          accuracy of the full models, without looking at the website name at all.
+        </p>
+      </section>
+
+      <!-- R2 Robustness benchmark -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">06 / MAIN NOVELTY · RESULT</p>
+            <h2>Robustness benchmark at a fixed 1% false-alarm budget</h2>
+          </div>
+          <p class="source">Source: robust_summary.csv · robust_benchmark_results.csv</p>
+        </div>
+        <p class="intro">
+          P-tests are cheap attacker edits of test-set phishing URLs (higher detection is better).
+          L-tests are normal variations of test-set legitimate URLs (lower false alarms is better).
+          Every model's threshold is set on validation data so that 1% of clean legitimate URLs are flagged.
+        </p>
+        <div class="toggle-row">
+          @for (m of robustModels; track m) {
+            <button [class.active]="robustModel === m" (click)="robustModel = m">{{ m }}</button>
+          }
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Training strategy</th><th>Clean F1</th><th>Avg detection under attack</th><th>Worst-case detection</th><th>Avg false alarm on variations</th><th>Robust balanced accuracy</th><th>Robust AUC</th><th>Mimicry AUC</th></tr>
+            </thead>
+            <tbody>
+              @for (d of defences; track d) {
+                <tr [class.proposed]="isProposed(d)">
+                  <td class="model-cell">{{ d }}</td>
+                  <td>{{ p2(robustRow(d), 'Clean_F1', 2) }}</td>
+                  <td>{{ p2(robustRow(d), 'Avg_detection_under_attack') }}</td>
+                  <td>{{ p2(robustRow(d), 'Worst_case_detection') }}</td>
+                  <td>{{ p2(robustRow(d), 'Avg_false_alarm_on_variations') }}</td>
+                  <td><strong>{{ p2(robustRow(d), 'Robust_balanced_accuracy') }}</strong></td>
+                  <td>{{ p2(robustRow(d), 'Robust_AUC') }}</td>
+                  <td>{{ p2(robustRow(d), 'Mimicry_AUC') }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap">
+          <table class="heat">
+            <thead>
+              <tr>
+                <th>Strategy · {{ robustModel }}</th>
+                @for (t of robustTests; track t) {
+                  <th [title]="exampleFor(t)">{{ t }}</th>
+                }
+              </tr>
+            </thead>
+            <tbody>
+              @for (d of defences; track d) {
+                <tr [class.proposed]="isProposed(d)">
+                  <td class="model-cell">{{ d }}</td>
+                  @for (t of robustTests; track t) {
+                    <td [style.background]="rateColor(t, robustRate(d, t))">{{ robustRate(d, t).toFixed(1) }}</td>
+                  }
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="footnote">Cells: detection rate (P) or false-alarm rate (L), %. Green is better. Hover a column title for an example URL.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Test</th><th>Example URL</th></tr></thead>
+            <tbody>
+              @for (t of robustTests; track t) {
+                <tr><td class="model-cell">{{ t }}</td><td class="url-cell">{{ exampleFor(t) }}</td></tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- X1 Second dataset audit -->
+      @if (x1.length) {
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">07 / EXTERNAL VALIDATION</p>
+            <h2>The same shortcut exists in a second public dataset</h2>
+          </div>
+          <p class="source">Source: x1_shortcut_audit_two_datasets.csv</p>
+        </div>
+        <p class="intro">
+          PhiUSIIL (Prasad &amp; Chandra, Computers &amp; Security 2024) was collected independently,
+          yet its legitimate URLs are also 100% HTTPS, 100% "www." and 100% bare homepages.
+          URLs that also appear in LegitPhish were removed before every test
+          ({{ x2meta['phiusiil_rows'] }} PhiUSIIL URLs remain).
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Attribute</th><th>LegitPhish: % phishing</th><th>% legitimate</th><th>Accuracy alone</th>
+              <th>PhiUSIIL: % phishing</th><th>% legitimate</th><th>Accuracy alone</th></tr></thead>
+            <tbody>
+              @for (a of x1Attrs(); track a) {
+                <tr>
+                  <td class="model-cell">{{ a }}</td>
+                  <td>{{ p2(x1Val('LegitPhish', a, ''), 'Pct_of_phishing') }}</td>
+                  <td>{{ p2(x1Val('LegitPhish', a, ''), 'Pct_of_legitimate') }}</td>
+                  <td><strong>{{ p2(x1Val('LegitPhish', a, ''), 'Accuracy_using_only_this_attribute', 2) }}</strong></td>
+                  <td>{{ p2(x1Val('PhiUSIIL', a, ''), 'Pct_of_phishing') }}</td>
+                  <td>{{ p2(x1Val('PhiUSIIL', a, ''), 'Pct_of_legitimate') }}</td>
+                  <td><strong>{{ p2(x1Val('PhiUSIIL', a, ''), 'Accuracy_using_only_this_attribute', 2) }}</strong></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+      }
+
+      <!-- X2 Cross-dataset trade-off -->
+      @if (x2.length) {
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">08 / EXTERNAL VALIDATION · KEY RESULT</p>
+            <h2>Trained on LegitPhish, tested on unseen PhiUSIIL URLs</h2>
+          </div>
+          <p class="source">Source: x2_cross_dataset_phiusiil.csv</p>
+        </div>
+        <p class="intro">
+          Because both datasets share the shortcut, the standard model scores almost perfectly on PhiUSIIL too.
+          Removing the shortcut completely (pure FRT, D3/D4) gives the best robustness but loses real-data accuracy.
+          Mixed FRT (D6: clean URLs + two randomised copies) keeps both. "Format-matched" uses only the
+          {{ x2meta['phishing_group_sizes']?.['Looks like legitimate format (HTTPS + www + homepage)'] }} real PhiUSIIL
+          phishing URLs written exactly like legitimate ones (HTTPS + www + homepage), where no format cue can help.
+        </p>
+        <div class="toggle-row">
+          @for (m of x2Models; track m) {
+            <button [class.active]="x2Model === m" (click)="x2Model = m">{{ m }}</button>
+          }
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Training strategy · {{ x2Model }}</th><th>Clean F1 (LegitPhish)</th><th>Robust balanced acc.</th><th>Robust AUC</th>
+              <th>PhiUSIIL AUC</th><th>PhiUSIIL F1</th><th>PhiUSIIL false alarm</th><th>Format-matched AUC (real)</th></tr></thead>
+            <tbody>
+              @for (d of x2Defences; track d) {
+                <tr [class.proposed]="isMixed(d)">
+                  <td class="model-cell">{{ d }}</td>
+                  <td>{{ p2(x2Row(d), 'Clean_F1', 2) }}</td>
+                  <td><strong>{{ p2(x2Row(d), 'Robust_balanced_accuracy') }}</strong></td>
+                  <td>{{ p2(x2Row(d), 'Robust_AUC') }}</td>
+                  <td><strong>{{ p2(x2Row(d), 'PhiUSIIL_ROC_AUC', 2) }}</strong></td>
+                  <td>{{ p2(x2Row(d), 'PhiUSIIL_F1') }}</td>
+                  <td>{{ p2(x2Row(d), 'PhiUSIIL_False_alarm', 2) }}</td>
+                  <td>{{ p2(x2Row(d), 'PhiUSIIL_Format_matched_AUC') }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="footnote">All thresholds are set on LegitPhish validation data at a 1% false-alarm budget; PhiUSIIL is never used for training or tuning.</p>
+      </section>
+      }
+
+      <!-- X3 SHAP -->
+      @if (x3.length) {
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">09 / EXPLANATION</p>
+            <h2>What the XGBoost models actually look at (TreeSHAP, PhiUSIIL)</h2>
+          </div>
+          <p class="source">Source: x3_shap_xgboost.csv</p>
+        </div>
+        <div class="model-grid four">
+          @for (d of shapDefences; track d) {
+            <article class="model-card">
+              <p class="card-label">{{ d.slice(0, 2) }}</p>
+              <h3 class="small-h">{{ d.slice(3) }}</h3>
+              @for (g of shapGroups(d, 'PhiUSIIL'); track g.group) {
+                <div class="shap-row">
+                  <span>{{ g.group }}</span><strong>{{ g.share.toFixed(1) }}%</strong>
+                  <div class="progress"><span [style.width.%]="g.share" [style.background]="groupColor(g.group)"></span></div>
+                </div>
+              }
+              <p class="footnote">Top features:
+                @for (r of shapTop(d, 'PhiUSIIL', 5); track r['Feature']; let last = $last) {
+                  {{ r['Feature'] }} ({{ num(r, 'Share_pct').toFixed(1) }}%){{ last ? '' : ', ' }}
+                }
+              </p>
+            </article>
+          }
+        </div>
+      </section>
+      }
+
+      <!-- X4 Char-CNN -->
+      @if (x4.length) {
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">10 / DEEP MODEL</p>
+            <h2>Character-level CNN reading the raw URL</h2>
+          </div>
+          <p class="source">Source: x4_char_cnn.csv</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Model</th><th>Clean F1</th><th>Robust balanced acc.</th><th>Robust AUC</th><th>Mimicry AUC</th>
+              <th>PhiUSIIL AUC</th><th>PhiUSIIL F1</th><th>Format-matched AUC</th></tr></thead>
+            <tbody>
+              @for (r of x4; track r['Model']) {
+                <tr [class.proposed]="r['Model'].includes('mixed')">
+                  <td class="model-cell">{{ r['Model'] }}</td>
+                  <td>{{ p2(r, 'Clean_F1', 2) }}</td><td><strong>{{ p2(r, 'Robust_balanced_accuracy') }}</strong></td>
+                  <td>{{ p2(r, 'Robust_AUC') }}</td><td>{{ p2(r, 'Mimicry_AUC') }}</td>
+                  <td><strong>{{ p2(r, 'PhiUSIIL_ROC_AUC', 2) }}</strong></td><td>{{ p2(r, 'PhiUSIIL_F1') }}</td>
+                  <td>{{ p2(r, 'PhiUSIIL_Format_matched_AUC') }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+      }
+
+      <!-- X5 Seeds -->
+      @if (x5.length) {
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">11 / STATISTICAL CHECK</p>
+            <h2>Repeated runs and significance tests</h2>
+          </div>
+          <p class="source">Source: x5_seed_summary.csv · x5_significance.csv</p>
+        </div>
+        <div class="toggle-row">
+          @for (m of x2Models; track m) {
+            <button [class.active]="x2Model === m" (click)="x2Model = m">{{ m }}</button>
+          }
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Strategy · {{ x2Model }} (mean ± sd over seeds)</th><th>Runs</th><th>Robust balanced acc.</th><th>Clean F1</th><th>PhiUSIIL AUC</th><th>Format-matched AUC</th></tr></thead>
+            <tbody>
+              @for (r of x5; track r['Defence'] + r['Model']) {
+                @if (r['Model'] === x2Model) {
+                  <tr [class.proposed]="isMixed(r['Defence'])">
+                    <td class="model-cell">{{ r['Defence'] }}</td>
+                    <td>{{ r['Robust_balanced_accuracy_count'] }}</td>
+                    <td><strong>{{ pm(r, 'Robust_balanced_accuracy') }}</strong></td>
+                    <td>{{ pm(r, 'Clean_F1', 2) }}</td>
+                    <td>{{ pm(r, 'PhiUSIIL_ROC_AUC', 2) }}</td>
+                    <td>{{ pm(r, 'PhiUSIIL_Format_matched_AUC') }}</td>
+                  </tr>
+                }
+              }
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Comparison</th><th>Metric</th><th>Pairs (seed × model)</th><th>Mean difference</th><th>Pairs improved</th><th>Wilcoxon p-value</th></tr></thead>
+            <tbody>
+              @for (r of x5sig; track r['Comparison'] + r['Metric']) {
+                <tr>
+                  <td class="model-cell">{{ r['Comparison'] }}</td><td>{{ r['Metric'] }}</td>
+                  <td>{{ r['Pairs (seed x model)'] }}</td>
+                  <td [class.delta-up]="num(r, 'Mean_difference') > 0" [class.delta-down]="num(r, 'Mean_difference') < 0">{{ num(r, 'Mean_difference').toFixed(2) }}</td>
+                  <td>{{ r['Pairs_improved'] }} / {{ r['Pairs (seed x model)'] }}</td>
+                  <td>{{ pval(r) }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+      }
+
+      <!-- 05 Novelty: original vs enhanced -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">12 / SUPPORTING ANALYSIS</p>
+            <h2>Original vs enhanced feature set</h2>
+          </div>
+          <p class="source">Source: novelty_original_vs_enhanced.csv</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Model</th><th>Split</th><th>F1 original</th><th>F1 enhanced</th><th>Δ F1</th><th>Recall Δ</th><th>FN orig → enh</th><th>FP orig → enh</th></tr>
+            </thead>
+            <tbody>
+              @for (r of novelty; track r['Model'] + r['Split']) {
+                <tr>
+                  <td class="model-cell">{{ r['Model'] }}</td>
+                  <td><span class="split-pill">{{ r['Split'] }}</span></td>
+                  <td>{{ pct(r, noveltyKey(r, 'F1', false), 3) }}</td>
+                  <td>{{ pct(r, noveltyKey(r, 'F1', true), 3) }}</td>
+                  <td [class]="deltaClass(r, 'F1_delta')">{{ delta(r, 'F1_delta') }}</td>
+                  <td [class]="deltaClass(r, 'Recall_delta')">{{ delta(r, 'Recall_delta') }}</td>
+                  <td>{{ num(r, noveltyKey(r, 'FN', false)).toFixed(0) }} → {{ num(r, noveltyKey(r, 'FN', true)).toFixed(0) }}</td>
+                  <td>{{ num(r, noveltyKey(r, 'FP', false)).toFixed(0) }} → {{ num(r, noveltyKey(r, 'FP', true)).toFixed(0) }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="footnote">
+          Domain-grouped split: no registered domain appears in both train and test, so the
+          model cannot memorise a phishing domain it has already seen.
+        </p>
+      </section>
+
+      <!-- 06a IP-free benchmark -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">13 / SUPPORTING ANALYSIS</p>
+            <h2>IP-free hard benchmark</h2>
+          </div>
+          <p class="source">Source: novelty_ip_free_benchmark.csv</p>
+        </div>
+        <p class="intro">
+          {{ (featureStats[0] ? num(featureStats[0], 'Nonzero_phishing_pct').toFixed(1) : '77') }}% of LegitPhish phishing URLs use a raw IP host,
+          which makes the full dataset almost trivially separable. Removing every IP-host URL leaves
+          {{ meta['ip_free_rows'] }} domain-based URLs ({{ meta['ip_free_phishing'] }} phishing /
+          {{ meta['ip_free_legitimate'] }} legitimate), the setting the suspicious-domain features target.
+        </p>
+        @for (split of ['Stratified 80/20', 'Domain-grouped 5-fold']; track split) {
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>{{ split }}</th><th>F1 original</th><th>F1 enhanced</th><th>Errors (FN+FP) original</th><th>Errors enhanced</th><th>Error change</th></tr>
+              </thead>
+              <tbody>
+                @for (name of ipFreeModels(); track name) {
+                  <tr>
+                    <td class="model-cell">{{ name }}</td>
+                    <td>{{ pct(ipf(name, split, false), 'F1_mean', 3) }}</td>
+                    <td>{{ pct(ipf(name, split, true), 'F1_mean', 3) }}</td>
+                    <td>{{ num(ipf(name, split, false), 'Errors_mean').toFixed(1) }}</td>
+                    <td>{{ num(ipf(name, split, true), 'Errors_mean').toFixed(1) }}</td>
+                    <td [class]="errClass(name, split)">{{ errReduction(name, split) }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        }
+        <p class="footnote">Domain-grouped 5-fold: each fold is an 80/20 split in which no registered domain appears on both sides; values are fold means.</p>
+      </section>
+
+      <!-- 06 Learning curve -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">14 / SUPPORTING ANALYSIS</p>
+            <h2>Low-data learning curve (test F1, %)</h2>
+          </div>
+          <p class="source">Source: novelty_learning_curve.csv</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Training URLs</th>
+                @for (name of modelNames; track name) {
+                  <th>{{ name }}<br><small>orig → enh (Δ)</small></th>
+                }
+              </tr>
+            </thead>
+            <tbody>
+              @for (n of lcRows; track n) {
+                <tr>
+                  <td class="model-cell">{{ n }}</td>
+                  @for (name of modelNames; track name) {
+                    <td>
+                      {{ pct(lcValue(name, n, false), 'F1') }} → {{ pct(lcValue(name, n, true), 'F1') }}
+                      <span [class]="lcDeltaClass(name, n)">({{ lcDelta(name, n) }})</span>
+                    </td>
+                  }
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 07 Attack categories -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">15 / SUPPORTING ANALYSIS</p>
+            <h2>Detection rate by phishing attack type</h2>
+          </div>
+          <p class="source">Source: novelty_attack_category_recall.csv</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Attack type</th><th>Phishing in test</th>
+                @for (name of modelNames; track name) {
+                  <th>{{ name }}<br><small>missed: orig → enh</small></th>
+                }
+              </tr>
+            </thead>
+            <tbody>
+              @for (c of categoryNames; track c) {
+                <tr>
+                  <td class="model-cell">{{ c }}</td>
+                  <td>{{ cat(modelNames[0], c, false)?.['Phishing_in_test'] }}</td>
+                  @for (name of modelNames; track name) {
+                    <td>
+                      {{ num(cat(name, c, false), 'Phishing_in_test') - num(cat(name, c, false), 'Detected') }}
+                      → {{ num(cat(name, c, true), 'Phishing_in_test') - num(cat(name, c, true), 'Detected') }}
+                    </td>
+                  }
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 08 Family ablation -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">16 / SUPPORTING ANALYSIS</p>
+            <h2>Feature-family ablation</h2>
+          </div>
+          <p class="source">Source: novelty_family_ablation.csv</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Model</th><th>Split</th><th>Family added</th><th>Features</th><th>F1</th><th>Δ F1 vs original</th><th>FN</th><th>FP</th></tr></thead>
+            <tbody>
+              @for (r of ablation; track r['Model'] + r['Split'] + r['Added_family']) {
+                <tr>
+                  <td class="model-cell">{{ r['Model'] }}</td>
+                  <td><span class="split-pill">{{ r['Split'] }}</span></td>
+                  <td>{{ r['Added_family'] }}</td>
+                  <td>{{ r['n_features'] }}</td>
+                  <td>{{ pct(r, 'F1', 3) }}</td>
+                  <td [class]="deltaClass(r, 'F1_delta_vs_original')">{{ delta(r, 'F1_delta_vs_original') }}</td>
+                  <td>{{ r['FN'] }}</td>
+                  <td>{{ r['FP'] }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 09 Novel features -->
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">17 / SUPPORTING ANALYSIS</p>
+            <h2>Proposed suspicious-domain features</h2>
+          </div>
+          <p class="source">Source: novel_feature_statistics.csv</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>Family</th><th>Non-zero in phishing</th><th>Non-zero in legitimate</th><th>Mean phishing</th><th>Mean legitimate</th></tr></thead>
+            <tbody>
+              @for (r of featureStats; track r['Feature']) {
+                <tr>
+                  <td class="model-cell">{{ r['Feature'] }}</td>
+                  <td><span class="split-pill">{{ r['Family'] }}</span></td>
+                  <td>{{ num(r, 'Nonzero_phishing_pct').toFixed(2) }}%</td>
+                  <td>{{ num(r, 'Nonzero_legitimate_pct').toFixed(2) }}%</td>
+                  <td>{{ num(r, 'Mean_phishing').toFixed(3) }}</td>
+                  <td>{{ num(r, 'Mean_legitimate').toFixed(3) }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+    }
+  </main>
+
+  <footer>
+    <span>LegitPhish · Research Dashboard · Sundas Maria Hayat (232015)</span>
+    <span>Experimental results, not a live URL scanner</span>
+  </footer>
+</div>
